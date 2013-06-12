@@ -70,8 +70,7 @@ class Player
     end
   end
   
-  def play_turn(warrior)
-      
+  def play_game(warrior)
     if warrior.look[1].to_s == "Captive" && !warrior.feel.enemy?
       warrior.walk!     
     elsif captives(warrior)   
@@ -85,6 +84,9 @@ class Player
     elsif getem(warrior)
     end
     @health = warrior.health
-    
+  end
+  
+  def play_turn(warrior)
+    play_game(warrior)
   end
 end
